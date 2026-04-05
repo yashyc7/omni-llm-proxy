@@ -75,10 +75,9 @@ Perfect for:
 
 ### Prerequisites
 - Python 3.12+
-- Docker (optional)
 - Browser profiles pre-logged in (Chrome/Chromium)
 
-### Option 1: Local Development
+### Installation
 
 ```bash
 # Clone the repository
@@ -105,66 +104,6 @@ uv run python main.py
 # Or specify a provider
 uv run python main.py gemini
 uv run python main.py claude
-```
-
-### Option 2: Docker (Production)
-
-```bash
-# Build the image
-docker build -t omni-llm-proxy:latest .
-
-# Run with environment variables
-docker run -d \
-  --name omni-llm \
-  -p 5000:5000 \
-  -e DEFAULT_PROVIDER=chatgpt \
-  -e HEADLESS=true \
-  -e PORT=5000 \
-  -v ~/.chrome_profiles:/app/.chrome_profiles \
-  omni-llm-proxy:latest
-
-# Or use .env file
-docker run -d \
-  --name omni-llm \
-  -p 5000:5000 \
-  --env-file .env \
-  -v ~/.chrome_profiles:/app/.chrome_profiles \
-  omni-llm-proxy:latest
-
-# Check logs
-docker logs -f omni-llm
-```
-
-### Option 3: Docker Compose
-
-```yaml
-# docker-compose.yml
-version: '3.8'
-
-services:
-  omni-llm-proxy:
-    build: .
-    container_name: omni-llm-proxy
-    ports:
-      - "5000:5000"
-    environment:
-      - DEFAULT_PROVIDER=chatgpt
-      - HEADLESS=true
-      - PORT=5000
-      - LOGIN_TIMEOUT=120000
-      - RESPONSE_TIMEOUT=60000
-    volumes:
-      - ~/.chrome_profiles:/app/.chrome_profiles
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-```
-
-```bash
-docker-compose up -d
 ```
 
 ---
@@ -332,7 +271,6 @@ DEFAULT_PROVIDER=claude PORT=8000 uv run python main.py
 DEFAULT_PROVIDER=chatgpt        # chatgpt | gemini | claude
 PORT=5000                       # API server port
 HEADLESS=false                  # true for production, false for debugging
-LOGIN_TIMEOUT=120000            # ms to wait for login
 RESPONSE_TIMEOUT=60000          # ms to wait for LLM response
 ```
 
@@ -374,11 +312,6 @@ PROVIDERS: dict[str, ProviderConfig] = {
 
 ## 🐛 Troubleshooting
 
-### Issue: "Browser timeout" or "Page didn't load"
-```
-Solution: Increase LOGIN_TIMEOUT in .env
-LOGIN_TIMEOUT=180000  # 3 minutes
-```
 
 ### Issue: "Partial response received"
 ```
@@ -390,12 +323,6 @@ Check: Is the stop button visible in the LLM UI during generation?
 ```
 Solution: Update selectors in config.py after UI changes
 Use DevTools (F12) to inspect the new selectors
-```
-
-### Issue: Docker build fails on Playwright
-```
-Solution: Use Docker build cache
-docker build --no-cache -t omni-llm-proxy .
 ```
 
 ---
