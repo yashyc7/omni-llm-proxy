@@ -81,7 +81,7 @@ Perfect for:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/omni-llm-proxy.git
+git clone https://github.com/yashyc7/omni-llm-proxy.git
 cd omni-llm-proxy
 
 # Install dependencies
@@ -348,7 +348,7 @@ We welcome contributions! Please follow these steps:
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/yourusername/omni-llm-proxy.git
+   git clone https://github.com/yashyc7/omni-llm-proxy.git
    cd omni-llm-proxy
    ```
 
@@ -392,9 +392,8 @@ If Omni-LLM-Proxy helps you save on API costs, consider supporting the project:
 - 🎓 **Teach others how to use it**
 
 ### Support the Project:
-- [Buy me a coffee ☕](https://buymeacoffee.com/yourname)
-- [Sponsor via GitHub 💖](https://github.com/sponsors/yourname)
-- [Contribute code or documentation](https://github.com/yourname/omni-llm-proxy)
+- [Buy me a coffee ☕](https://buymeacoffee.com/yashyc7)
+- [Contribute code or documentation](https://github.com/yashyc7/omni-llm-proxy)
 
 ---
 
@@ -462,5 +461,5 @@ MIT License — See [LICENSE](LICENSE) file for details.
 
 **Made with ❤️ for the AI community**
 
-[⭐ Star us on GitHub](https://github.com/yourname/omni-llm-proxy)
+[⭐ Star us on GitHub](https://github.com/yashyc7/omni-llm-proxy)
 </div>
