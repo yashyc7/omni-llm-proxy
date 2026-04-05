@@ -1,0 +1,83 @@
+Business Source License 1.1
+
+Parameters:
+- Licensor: Yash Chauhan
+- Licensed Work: Omni-LLM-Proxy
+- Change Date: April 5, 2027
+- Change License: MIT License
+
+Terms:
+
+The Licensor hereby grants you the right to copy, modify, create derivative 
+works, and distribute the Licensed Work. However, if you receive the Licensed 
+Work and without authorities to agree to and accept all of the terms and 
+conditions of this Business Source License 1.1 agreement, then you may not 
+retain, install, or use the Licensed Work.
+
+ACCEPTANCE
+
+By using the Licensed Work, you are accepting and agreeing to be bound by 
+all of the terms and conditions of the Business Source License 1.1. If you 
+are not willing to be bound by such terms and conditions, you must cease 
+using the Licensed Work immediately.
+
+LICENSE GRANT
+
+The Licensor hereby grants you a non-exclusive, royalty-free, worldwide, 
+non-transferable license to use, copy, modify, and distribute the Licensed 
+Work in object or source code form, subject to the following conditions:
+
+1. RESTRICTIONS
+
+You may not:
+  a) Copy, modify, or create derivative works of the Licensed Work for any 
+     commercial purpose or for any public display;
+  b) Use the Licensed Work in any production environment for commercial 
+     purposes without obtaining a commercial license from the Licensor;
+  c) Use the Licensed Work to provide software-as-a-service (SaaS) or 
+     hosting services to third parties without a commercial license;
+  d) Remove or alter any proprietary notices, labels, or marks on the 
+     Licensed Work;
+  e) Sublicense, sell, rent, lease, transfer, assign, or otherwise dispose 
+     of the Licensed Work.
+
+2. PERMITTED USES
+
+You ARE permitted to use the Licensed Work for:
+  a) Personal, non-commercial development and testing;
+  b) Educational purposes;
+  c) Internal use within your organization (non-production);
+  d) Evaluation and proof-of-concept projects;
+  e) Modification for your personal or internal use.
+
+3. COMMERCIAL LICENSE
+
+For commercial production use, company-level deployments, or any use within 
+a business context, you MUST obtain a separate Commercial License Agreement 
+from the Licensor.
+
+To inquire about commercial licensing, contact:
+Email: [Your Email]
+Website: [Your Website]
+
+4. CHANGE LICENSE
+
+Effective as of the Change Date above (April 5, 2027), the Licensed Work 
+will automatically be made available under the MIT License, at which point 
+all restrictions in this Business Source License will no longer apply.
+
+DISCLAIMER
+
+THE LICENSED WORK IS PROVIDED ON AN "AS-IS" BASIS, WITHOUT WARRANTIES OR 
+CONDITIONS OF ANY KIND. THE LICENSOR DISCLAIMS ALL WARRANTIES, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS 
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CONSEQUENTIAL, INCIDENTAL, 
+INDIRECT, PUNITIVE, OR SPECIAL DAMAGES, HOWEVER CAUSED.
+
+If you have questions about this license, please contact the Licensor.
+
+Copyright (c) 2025 Yash Chauhan. All rights reserved.

@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# uv
+.uv/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Chrome profiles (contains login sessions — never commit)
+.chrome_profiles/
+
+# Playwright
+playwright/.auth/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ruff
+.ruff_cache/

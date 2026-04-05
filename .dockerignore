@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.pytest_cache
+.venv
+env/
+venv/
+*.egg
+
+# IDEs
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+
+# Chrome profiles (will be mounted via volume)
+.chrome_profiles
+
+# Documentation
+docs/
+*.md
+
+# OS
+Thumbs.db
+.env
+
+# Development
+.pre-commit-config.yaml
+pyproject.lock
+poetry.lock
+uv.lock
