@@ -26,7 +26,8 @@ Perfect for:
 | **API Keys** | ❌ None needed | ✅ Required + managed |
 | **Local Hosting** | ✅ Yes | ❌ Cloud only |
 | **Multiple Providers** | ✅ ChatGPT, Claude, Gemini | ❌ One per API |
-| **Streaming Detection** | ✅ Smart buffering | ✅ Built-in |
+| **Concurrency / Queuing** | ✅ Built-in Async Worker Queue | ✅ Managed by vendor |
+| **Streaming Detection** | ✅ Smart block validation | ✅ Built-in |
 | **Privacy** | ✅ On your hardware | ❌ Cloud processing |
 
 ---
@@ -56,11 +57,13 @@ Perfect for:
 ┌─────────────────────────────────┐
 │   Omni-LLM-Proxy (FastAPI)      │
 │                                 │
+│  [ Queueing Service ]           │
+│         │                       │
 │  ├─ ChatGPT Provider            │
 │  ├─ Claude Provider             │
 │  └─ Gemini Provider             │
 │                                 │
-│  (Routes to headless browsers)  │
+│  (Sequential background worker) │
 └──────────┬──────────────────────┘
            │
     ┌──────┼──────┐
@@ -422,26 +425,26 @@ MIT License — See [LICENSE](LICENSE) file for details.
 ```
 1. Request arrives at /query endpoint
    ├─ FastAPI validates JSON schema
-   ├─ Routes to provider-specific handler
+   ├─ QueryService intercepts and safely delegates request
    │
-2. Provider initializes Playwright browser
-   ├─ Uses saved login session
-   ├─ Types query in input field
-   ├─ Clicks submit button
+2. Asynchronous Background Queueing
+   ├─ Request is instantly wrapped in a Future & enqueued
+   ├─ A dedicated `asyncio` background worker isolates browser operations
+   ├─ Concurrent requests are systematically processed in chronological order
    │
-3. Smart streaming detection
-   ├─ Monitors "Stop generating" button
-   ├─ Waits for button to disappear
-   ├─ Ensures response is complete
+3. Provider automates Playwright browser
+   ├─ Restores persistent login session automatically
+   ├─ Injects predefined system prompt
+   ├─ Types user query and submits
    │
-4. Extract final response
-   ├─ Parses response from DOM
-   ├─ Strips whitespace/formatting
-   ├─ Returns clean JSON
+4. Smart streaming detection (Robust Mode)
+   ├─ Strictly validates the DOM for newly generated text blocks
+   ├─ Monitors "Stop generating" button state
+   ├─ Triggers API timeout explicitly if generation loops or fails
    │
-5. Response sent to client
+5. Final response sent to client
+   ├─ Parses the exact generation block
    ├─ Preserves newlines (\n in JSON)
-   ├─ Includes provider metadata
    └─ Ready for downstream processing
 ```
 
