@@ -1,34 +1,22 @@
 import os
-from dataclasses import dataclass
-
 from dotenv import load_dotenv
+from app.domain.schemas import ProviderConfig
 
 load_dotenv()
 
-
-@dataclass(frozen=True)
-class ProviderConfig:
-    url: str
-    input_selector: str
-    submit_selector: str
-    response_selector: str
-    done_selector: str
-    system_prompt: str
-
-
 PROVIDERS: dict[str, ProviderConfig] = {
     "chatgpt": ProviderConfig(
-    url="https://chat.openai.com",
-    input_selector="#prompt-textarea",
-    submit_selector="#prompt-textarea",  # Changed to input for Enter key press
-    response_selector="[data-message-author-role='assistant'] .markdown.prose",  # More specific selector
-    done_selector="#prompt-textarea",  # Changed to input element
-    system_prompt=(
-        "You are a concise assistant. "
-        "Reply with only the direct answer. "
-        "No filler, no buffer text, no markdown unless necessary."
+        url="https://chat.openai.com",
+        input_selector="#prompt-textarea",
+        submit_selector="#prompt-textarea",
+        response_selector="[data-message-author-role='assistant'] .markdown.prose",
+        done_selector="#prompt-textarea",
+        system_prompt=(
+            "You are a concise assistant. "
+            "Reply with only the direct answer. "
+            "No filler, no buffer text, no markdown unless necessary."
+        ),
     ),
-),
     "gemini": ProviderConfig(
         url="https://gemini.google.com",
         input_selector="rich-textarea",
@@ -47,7 +35,6 @@ PROVIDERS: dict[str, ProviderConfig] = {
     ),
 }
 
-# ── App-level settings ────────────────────────────────────────────────────────
 DEFAULT_PROVIDER: str = os.getenv("DEFAULT_PROVIDER", "chatgpt")
 PORT: int = int(os.getenv("PORT", 5000))
 HEADLESS: bool = os.getenv("HEADLESS", "false").lower() == "true"
